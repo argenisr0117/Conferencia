@@ -94,21 +94,240 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html{
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    background-color: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
+}
+/** Globales **/
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+h2::after{
+    content: '';
+    margin: 0 auto;
+    background-image: url(../img/separador.png);
+    display: block;
+    height: 30px;
+    width: 100px;
+}
+.contenedor{
+    width: 98%;
+    margin: 0 auto;
+}
+.seccion{
+    padding: 30px 0;
+}
+.seccion p{
+    font-size: 1.2em;
+    text-align: center;
+}
+/*Header*/
+div.hero{
+    background-image: url(../img/encabezado.jpg);
+    height: 100vh;
+    background-position: top center;
+    background-size: cover;
+}
+
+div.contenido-header{
+    padding-top: 40px;
+}
+nav.redes-sociales{
+    text-align: center;
+}
+nav.redes-sociales a{
+    color: white;
+    margin-right: 20px;
+    font-size: 2em;
+}
+
+nav.redes-sociales a:last-child{
+    margin-right: 0;
+}
+
+div.informacion-evento{
+    text-align: center;
+    color: white;
+}
+h1.nombre-sitio{
+    text-transform: uppercase;
+    font-size: 5.9vw;
+    font-family: 'PT Sans', sans-serif;
+}
+div.informacion-evento p{
+    margin: 0;
+    display: inline;
+    text-transform: uppercase;
+}
+div.informacion-evento i{
+    color: #fe4918;
+    font-size: 2rem;
+}
+p.fecha{
+    float: left;
+    font-weight: bold;
+}
+p.ciudad{
+    float: right;
+    text-align: right;
+    font-weight: bold;
+}
+p.slogan{
+    text-transform: none!important;
+}
+p.slogan span{
+    font-weight: bold;
+}
+/*Fin header */
+
+/*Barra menu */
+div.barra{
+    background-color: #353535;
+    padding: 20px 0;
+}
+div.logo{
+    width: 80%;
+    float: left;
+}
+div.logo img{
+    width: 100%;
+}
+/*Fin barra menu*/
+
+/*Navegacion principal*/
+nav.navegacion-principal{
+    display: none;
+}
+nav.navegacion-principal a{
+    font-family:'Oswald', sans-serif;
+    color: #ffffff;
+    font-size: 1.3em;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav.navegacion-principal a:hover{
+    background-color: #fe4918;
+    transition: all .5s ease-in;
+
+}
+
+nav.navegacion-principal a:last-child{
+    border: 2px solid #fe4918;
+    color: #fe4918;
+}
+nav.navegacion-principal a:last-child:hover{
+    color: #ffffff;
+}
+/*Fin Navegacion principal*/
+
+/*Menu movil*/
+div.menu-movil{
+    width: 60px;
+    display: block;
+    float: right;
+    text-align: right;
+    margin-top: 12px;
+}
+
+div.menu-movil span{
+    margin-bottom: 6px;
+    background-color: white;
+    height: 8px;
+    display: block;
+}
+div.menu-movil:hover{
+    cursor: pointer;
+}
+/*Fin Menu movil*/
 
 
+/*==============================================================================
+  Media queries  
+  ============================================================================== */
+
+@media only screen and (min-width:480px){
+    /*Barra Menu*/
+    .contenedor{
+        width: 90%;
+    }
+    /*Fin barra menu*/
+}
+
+@media only screen and (min-width:768px){
+    /*Header*/
+    div.contenido-header{
+    padding-top: 10px;
+}
+    div.informacion-evento{
+        width: 60%;
+        margin: 0 auto;
+}
+    h1.nombre-sitio{
+    font-size: 9.9vw;
+    line-height: 1;
+    margin: 0;
+}
+    /*Fin Header*/
+
+    /*Barra Menu*/
+    .contenedor{
+        width: 95%;
+    }
+    div.logo{
+        width: 33%;
+    }
+    /*Fin barra menu*/
+
+/*Navegacion principal*/
+    nav.navegacion-principal{
+        display: block;
+        float: right;
+        text-align: right;
+        width: 67%;
+    }
+    nav.navegacion-principal a{
+        display: inline-block;
+        padding: 10px 10px;
+        margin: 0 10px 0 0;
+        width: auto;
+        text-align: center;
+    }
+/*Fin Navegacion principal*/
+
+/*Menu movil*/
+    div.menu-movil{
+        display: none;
+    }
+/*Fin menu movil*/
+    
+}
+
+@media only screen and (min-width:992px){
+     /*Barra Menu*/
+    .contenedor{
+        width: 90%;
+        max-width: 1100px;
+    }
+     /*Fin Barra Menu*/
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+/*Menu movil*/
+/*Menu movil*/
 
 
 /* ==========================================================================

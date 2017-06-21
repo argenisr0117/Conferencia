@@ -13,39 +13,70 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
 </head>
 
 <body>
-    <header class="site-header">
+    <header class="site-header" role="header">
         <div class="hero">
             <div class="contenido-header">
                 <nav class="redes-sociales">
-                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#">Tw</a>
-                    <a href="#">Pa</a>
-                    <a href="#">Yt</a>
-                    <a href="#">Ig</a>
+                    <a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" title="Pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    <a href="#" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="#" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </nav>
                 <div class="informacion-evento">
-                    <p class="fecha">10-12 Dic</p>
-                    <p class="ciudad">Santiago, DO</p>
-                </div><!--Informacion-evento-->
-                <h1 class="nombre-sitio">GDLWebCamp</h1>
-                <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
+                    <div class="clearfix">
+                        <p class="fecha"><i class="fa fa-calendar" aria-hidden="true"></i> 10-12 Dic</p>
+                        <p class="ciudad"><i class="fa fa-map-marker" aria-hidden="true"></i> Santiago, DO</p>
+                    </div>
+                    <h1 class="nombre-sitio">GDLWebCamp</h1>
+                    <p class="slogan">La mejor conferencia de <span>diseño web</span></p>
+                </div>
+                <!--Informacion-evento-->
             </div>
             <!--Contenido header-->
         </div>
         <!--Hero-->
     </header>
-
+    <div class="barra">
+        <div class="contenedor clearfix">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Logo gdlwebcamp">
+            </div>
+            <div class="menu-movil">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="navegacion-principal clearfix" role="navigation">
+                <a href="#">Conferecia</a>
+                <a href="#">Calendario</a>
+                <a href="#">Contacto</a>
+                <a href="#">Reservaciones</a>
+            </nav>
+        </div>
+        <!--Contenedor-->
+    </div>
+    <!--Barra-->
+    <section class="seccion contenedor">
+        <h2>La mejor conferencia de diseño web es español</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum sunt accusamus dicta laudantium quisquam voluptate quae harum expedita. Voluptatem natus porro maxime odio amet. Eius veritatis, ipsam dolore blanditiis illum.
+        </p>
+    </section>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
