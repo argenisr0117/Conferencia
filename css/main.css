@@ -120,7 +120,7 @@ h2::after{
     width: 100px;
 }
 h3{
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: #fe4918;
     font-family: 'PT Sans', sans-serif;
     margin: 0;
@@ -137,6 +137,11 @@ h3{
     margin-top: 20px;
     display: inline-block;
     transition: all .3s ease;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .button:hover{
     background-color: #e33000;
@@ -301,8 +306,9 @@ div.programa-evento{
     background-color: rgba(255, 255, 255, 0.8);
     padding: 15px;
     margin-top: 80px;
+    width: 80%;
+    
 }
-
 nav.menu-programa{
     width: 100%;
     border-bottom: 1px solid #fe4918;
@@ -333,9 +339,152 @@ div.detalle-evento:nth-child(2){
 }
 div.detalle-evento p{
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 15px;
 }
+
+
 /*Fin talleres*/
+
+/*Invitados*/
+ul.lista-invitados li{
+    float: left;
+    padding: 10px;
+}
+div.invitado {
+    position: relative;
+    overflow: hidden;
+}
+div.invitado img{
+    max-width: 100%;
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all .5s ease-in-out;
+}
+div.invitado:hover img{
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.1);
+}
+div.invitado:hover p{
+    opacity: 0;
+    bottom: -80px;
+}
+div.invitado p{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: rgba(63, 63, 63, 0.7);
+    width: 100%;
+    text-align: left;
+    color: #fe4918;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    transition: all .5s ease-in-out;
+}
+/*Fin invitados*/
+/*Paralax - Contador*/
+.parallax::before{
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+filter: brightness(.8);
+-webkit-filter: brightness(.8);
+}
+div.contador{
+    position: relative;
+    height: auto;
+}
+div.contador::before{
+    background-image: url(../img/bg-resumen.jpg);
+    content: '';
+}
+
+ul.resumen-evento{
+    position: relative;
+    padding: 120px 0;
+}
+ul.resumen-evento li{
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+}
+p.numero{
+color:#fe4918;
+font-size: 4em;
+display: block;
+margin: 0 0 10px 0;
+font-family: 'Oswald', sans-serif;
+
+}
+/*Fin paralax - contador*/
+/* Tabla precios */
+ul.lista-precios > li{
+    float: left;
+    width: 100%;
+    
+}
+div.tabla-precio{
+    border: 1px solid #e1e1e1;
+    background-color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+div.tabla-precio ul li{
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #868686;
+    line-height: 26px;
+}
+div.tabla-precio h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;  
+}
+div.tabla-precio p.numero{
+    color: #000000;
+    margin: 20px 0;
+}
+div.tabla-precio ul li::before{
+    font-family: 'FontAwesome';
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 5px;
+    font-size: 20px;
+    color: green;
+    -webkit-font-smoothing: antialiased;
+    content: '\f00c';
+}
+/* Fin tabla precios */
+/* Tabla de precios */
+ul.lista-precios > li{
+    padding: 10px;
+
+}
+div.tabla-precio:hover{
+    transform: scale(1.1);
+    border: 1px solid #fe4918;
+    box-shadow: 0px 0px 50px #666;
+    cursor: pointer;
+}
+/* Fin Tabla de precios */
+/* **************Fin movil***************************** */
+/* **************Fin Movil***************************** */
+
+
 
 /*==============================================================================
   Media queries
@@ -347,8 +496,38 @@ div.detalle-evento p{
         width: 90%;
     }
     /*Fin barra menu*/
+    /*Invitados*/
+    ul.lista-invitados li{
+        width: 50%;
+    }
+    /*Fin invitados*/
+    ul.lista-precios > li{
+        width: 33.3%;
+        
+    }
 }
 
+/* ************************************************** */
+/* **************max 340***************************** */
+/* **************max 340******************************* */
+/* ************************************************** */
+
+@media only screen and (max-width:340px){
+    div.menu-movil{
+        width: 20%;
+        margin-top: 4px;
+    }
+}
+
+/* ************************************************** */
+/* **************max 340***************************** */
+/* **************max 340******************************** */
+/* ************************************************** */
+
+/* ************************************************** */
+/* **************768***************************** */
+/* **************768******************************** */
+/* ************************************************** */
 @media only screen and (min-width:768px){
     /*Header*/
     div.contenido-header{
@@ -407,10 +586,28 @@ div.detalle-evento p{
     display: table-cell;
 }
 /*Fin Talleres*/
-
-
+/*Invitados*/
+    ul.lista-invitados li{
+        width: 33.3%;
+    }
+/*Fin invitados*/
+/* Paralax contador */
+ul.resumen-evento li{
+    width: 25%;
 }
+/* Fin Contador */
+}
+/* *****************768***************************** */
+/* ******************768***************************** */
+/* *******************768**************************** */
+/* ********************768*************************** */
 
+
+
+
+/* **************992********************************** */
+/* ***************992******************************** */
+/* ************************************************** */
 @media only screen and (min-width:992px){
      /*Barra Menu*/
     .contenedor{
@@ -418,16 +615,20 @@ div.detalle-evento p{
         max-width: 1100px;
     }
      /*Fin Barra Menu*/
-}
-
-
-/*Menu movil*/
-/*Menu movil*/
-/*Talleres*/
-    div.programa-evento{
+     div.programa-evento{
         width: 50%;
+        
     }
-/*Fin Talleres*/
+}
+/* ************************************************** */
+/* ****************992***************************** */
+/* ****************992******************************* */
+/* ************************************************** */
+
+
+/*Menu movil*/
+/*Menu movil*/
+
 
 /* ==========================================================================
    Helper classes
