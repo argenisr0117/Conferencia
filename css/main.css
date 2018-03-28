@@ -637,6 +637,94 @@ p.copyright{
     padding: 10px;
     margin: 20px 0 0 0;
 }
+
+/* FORMULARIO REGISTRO*/
+form.registro h3{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 0px 0px 0px;
+}
+form.registro label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+h4{
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fe4918;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+}
+div.caja{
+    background-color: white;
+    border-collapse: 1px solid #e1e1e1;
+    padding: 10px;
+    margin: 10px;
+}
+
+div.campo{
+    padding: 20px;
+}
+
+div.paquetes .tabla-precio:hover{
+    transform: none;
+    box-shadow: none;
+}
+div.paquetes .tabla-precio input{
+    clear: both;
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 100px;
+}
+
+.contenido-dia{
+    padding: 20px;
+}
+.contenido-dia > div label{
+    display: block;
+    margin-bottom: 10px;
+ }
+ .contenido-dia > div p{
+    text-align: left;
+ }
+
+ .contenido-dia > div label input{
+    margin-right: 10px;
+ }
+
+ .contenido-dia > div label time{
+    color: #fe4918;
+    font-weight: bold;
+ }
+
+
+ .resumen p{
+     font-size: 1.2em;
+     text-transform: uppercase; 
+ }
+
+ div.resumen div.extras{
+    float: left;
+    width: 50%;
+    padding: 30px;
+ }
+ div.extras div.orden{
+     text-align: left;
+     margin-bottom: 10px;
+ }
+ div.extras div.orden input{
+   margin: 10px 0 0 0;
+}
+div.resumen div.total{
+    float: right;
+    width: 50%;
+    padding: 30px;
+}
+div.resumen input{
+    display: block;
+    margin: 10px auto;
+}
+/* FIN FORMULARIO REGISTRO */
 /*==============================================================================
   Media queries
   ============================================================================== */
@@ -766,7 +854,16 @@ footer .contenedor > div{
     width: 33.3%;
 }    
 }
+/* campos registros usuario */
 
+div.campo{
+    float: left;
+    width: 33.3%;
+}
+.contenido-dia > div{
+   float: left;
+   width: 33.3%;
+}
 
 /* *****************768***************************** */
 /* ******************768***************************** */

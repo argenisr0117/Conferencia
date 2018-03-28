@@ -24,21 +24,11 @@
         <div class="hero">
             <div class="contenido-header">
                 <nav class="redes-sociales">
-                    <a href="#" title="Facebook">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Twitter">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Pinterest">
-                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Youtube">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Instagram">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
+                    <a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" title="Pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    <a href="#" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="#" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </nav>
                 <div class="informacion-evento">
                     <div class="clearfix">
@@ -81,20 +71,21 @@
     <section class="seccion contenedor">
         <h2>registro de usuarios</h2>
         <form action="index.html" method="post" id="registro" class="registro">
-            <div class="campo">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            <div id="datos_usuario" class="registro clearfix caja">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="campo">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido">
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <div id="error"></div>
             </div>
-            <div class="campo">
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Apellido">
-            </div>
-            <div class="campo">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-            </div>
-            <div id="error"></div>
-
             <div id="paquetes" class="paquetes">
                 <ul class="lista-precios clearfix">
                     <li>
@@ -284,16 +275,21 @@
             <div id="resumen" class="resumen">
                 <h3>Pago y Extras</h3>
                 <div class="caja clearfix">
-                    <div class="orden">
-                        <label for="camisa-evento">Camisa del evento 10$<small> (promoción 7% desc.)</small></label>
-                        <input type="number" min="0" id="camisa-evento" name="camisa-evento" placeholder="0" size="3">
-                    </div>
-                    <div class="orden">
-                        <label for="etiquetas">Paquete de 10 etiquetas 2$<small> (HTML5, CSS3, JavaScript, Chrome)</small></label>
-                        <input type="number" min="0" id="etiquetas" name="eti" placeholder="0" size="3">
-                    </div>
-                    <div class="orden">
-                            <label for="regalo">Seleccione un regalo</label>
+                    <div class="extras">
+                        <div class="orden">
+                            <label for="camisa-evento">Camisa del evento 10$
+                                <small> (promoción 7% desc.)</small>:
+                            </label>
+                            <input type="number" min="0" id="camisa-evento" name="camisa-evento" placeholder="0" size="3">
+                        </div>
+                        <div class="orden">
+                            <label for="etiquetas">Paquete de 10 etiquetas 2$
+                                <small> (HTML5, CSS3, JavaScript, Chrome)</small>:
+                            </label>
+                            <input type="number" min="0" id="etiquetas" name="eti" placeholder="0" size="3">
+                        </div>
+                        <div class="orden">
+                            <label for="regalo">Seleccione un regalo:</label><br>
                             <select name="regalo" id="regalo" required>
                                 <option value="">--Seleccione un regalo--</option>
                                 <option value="ETI">Eqiquetas</option>
@@ -301,10 +297,25 @@
                                 <option value="PLU">Plumas</option>
                             </select>
                         </div>
+                        <input type="button" id="calcular" class="button" value="Calcular">
+                </div> <!-- fin extras -->
+                    <div class="total">
+                        <p>Resumen:</p>
+                        <div id="lista-productos">
+
+                        </div>
+                        <p>Total:</p>
+                        <div id="suma-total">
+
+                        </div>
+                        <input type="submit" id="btnRegistro" class="button" value="pagar">
+                    </div>
                 </div>
             </div>
+            <!--Extras-->
         </form>
     </section>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="contenedor clearfix">
@@ -332,21 +343,11 @@
                     <span>sociales</span>
                 </h3>
                 <nav class="redes-sociales">
-                    <a href="#" title="Facebook">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Twitter">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Pinterest">
-                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Youtube">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="Instagram">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
+                    <a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" title="Pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                    <a href="#" title="Youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href="#" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </nav>
             </div>
         </div>
