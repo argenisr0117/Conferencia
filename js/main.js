@@ -31,6 +31,11 @@
         pase_dosdia.addEventListener('blur', MosOcul);
         pase_completo.addEventListener('blur', MosOcul);
 
+        nombre.addEventListener('blur', validarCampos);
+        apellido.addEventListener('blur', validarCampos);
+        email
+            .addEventListener('blur', validarCampos);
+
         function calcularMontos(event) {
             //event.preventDefault();
             if (regalo.value == "") {
@@ -118,6 +123,19 @@
 
             for (var i = 0; i < diasElegidos.length; i++) {
                 document.getElementById(diasElegidos[i]).style.display = 'none';
+            }
+        }
+
+        function validarCampos() {
+            if (this.value == '') {
+                error.style.display = 'block';
+                error.style.border = '1px solid red';
+                error.innerHTML = 'Campo obligatorio';
+                this.style.border = '1px solid red';
+            }
+            else {
+                error.style.display = 'none';
+                this.style.border = '1px solid #cccccc';
             }
         }
     });

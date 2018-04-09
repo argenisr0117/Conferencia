@@ -736,6 +736,15 @@ div.resumen input{
     color: #fe4918;
     text-align: center;
 }
+input[disabled].button{
+    opacity: .5;
+}
+#error {
+    clear: both;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
 /* FIN FORMULARIO REGISTRO */
 /*==============================================================================
   Media queries
