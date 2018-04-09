@@ -77,8 +77,8 @@
         }
 
         function MosOcul() {
-            MostrarCursos();
             OcultarCursos();
+            MostrarCursos();
         }
         function MostrarCursos() {
 
