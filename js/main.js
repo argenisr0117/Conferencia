@@ -1,3 +1,13 @@
+//google map api//
+var api = 'AIzaSyC7k_G8bGXOY-I7U76BK58MPMK_8gLhxX4';
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('mapa'), {
+        center: { lat: 19.4582802, lng: -70.6863409 },
+        zoom: 12
+    });
+}
+//google map api//
 (function () {
     "use strict";
     var regalo = document.getElementById('regalo');
@@ -27,15 +37,6 @@
         var total_pagar = document.getElementById('suma-total');
         //Calcular
         calcular.addEventListener('click', calcularMontos);
-        pase_dia.addEventListener('blur', MosOcul);
-        pase_dosdia.addEventListener('blur', MosOcul);
-        pase_completo.addEventListener('blur', MosOcul);
-
-        nombre.addEventListener('blur', validarCampos);
-        apellido.addEventListener('blur', validarCampos);
-        email
-            .addEventListener('blur', validarCampos);
-
         function calcularMontos(event) {
             //event.preventDefault();
             if (regalo.value == "") {
@@ -81,6 +82,9 @@
             }
         }
 
+        pase_dia.addEventListener('blur', MosOcul);
+        pase_dosdia.addEventListener('blur', MosOcul);
+        pase_completo.addEventListener('blur', MosOcul);
         function MosOcul() {
             OcultarCursos();
             MostrarCursos();
@@ -126,6 +130,13 @@
             }
         }
 
+
+        nombre.addEventListener('blur', validarCampos);
+        apellido.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarMail);
+
+
         function validarCampos() {
             if (this.value == '') {
                 error.style.display = 'block';
@@ -136,6 +147,19 @@
             else {
                 error.style.display = 'none';
                 this.style.border = '1px solid #cccccc';
+            }
+        }
+        function validarMail() {
+            if (this.value.indexOf("@") > -1) {
+                console.log(this.value.indexOf("@"));
+                error.style.display = 'none';
+                this.style.border = '1px solid #cccccc';
+            }
+            else {
+                error.style.display = 'block';
+                error.style.border = '1px solid red';
+                error.innerHTML = 'Formato de correo incorrecto';
+                this.style.border = '1px solid red';
             }
         }
     });
