@@ -1,10 +1,29 @@
 //google map api//
 var api = 'AIzaSyC7k_G8bGXOY-I7U76BK58MPMK_8gLhxX4';
-var map;
 function initMap() {
-    map = new google.maps.Map(document.getElementById('mapa'), {
-        center: { lat: 19.4582802, lng: -70.6863409 },
-        zoom: 12
+    latLng = {
+        lat: 19.4579942,
+        lng: -70.6839872
+    };
+    var contenido ='<h2>GDLCONFERENCIA</h2>'+
+                    '<p>De Viernes a Domingo</p>'+
+                    '<p>Visitanos!</p>';
+    var informacion = new google.maps.InfoWindow({
+        content: contenido
+    });
+    var map = new google.maps.Map(document.getElementById('mapa'), {
+        center: latLng,
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        title: 'CONFERENCIA'
+    });
+
+    marker.addListener('click', function () {
+        informacion.open(map, marker);
     });
 }
 //google map api//
