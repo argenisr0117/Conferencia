@@ -5,9 +5,9 @@ function initMap() {
         lat: 19.4579942,
         lng: -70.6839872
     };
-    var contenido ='<h2>GDLCONFERENCIA</h2>'+
-                    '<p>De Viernes a Domingo</p>'+
-                    '<p>Visitanos!</p>';
+    var contenido = '<h2>GDLCONFERENCIA</h2>' +
+        '<p>De Viernes a Domingo</p>' +
+        '<p>Visitanos!</p>';
     var informacion = new google.maps.InfoWindow({
         content: contenido
     });
@@ -183,3 +183,19 @@ function initMap() {
         }
     });
 })();
+
+$().ready(() => {
+    'use stric'
+    $('.ocultar').hide();
+    $('.programa-evento .info-curso:first').show();
+    $('.menu-programa a:first').addClass('activo')
+    $('.menu-programa a').on('click', function() {
+        $('.ocultar').hide();
+        $('.menu-programa a').removeClass('activo');
+        $(this).addClass('activo');
+        var enlace = $(this).attr('href');
+        $(enlace).fadeIn(1000);
+        console.log(enlace);
+        return false;
+    })
+});
