@@ -47,151 +47,186 @@ function initMap() {
         var error = document.getElementById('error');
         var btnRegistro = document.getElementById('btnRegistro');
         var lista_productos = document.getElementById('lista-productos');
-
         //Extras
         var etiquetas = document.getElementById('etiquetas');
         var camisas = document.getElementById('camisa-evento');
 
         //totales
         var total_pagar = document.getElementById('suma-total');
-        //Calcular
-        calcular.addEventListener('click', calcularMontos);
-        function calcularMontos(event) {
-            //event.preventDefault();
-            if (regalo.value == "") {
-                alert("Debes elegir un regalo");
-                regalo.focus();
-            }
-            else {
+        if (document.getElementById('calcular')) {
+            //Calcular
+            calcular.addEventListener('click', calcularMontos);
+            function calcularMontos(event) {
+                //event.preventDefault();
+                if (regalo.value == "") {
+                    alert("Debes elegir un regalo");
+                    regalo.focus();
+                }
+                else {
 
+                    var BoletoDia = parseInt(pase_dia.value, 10) || 0;
+                    var Boleto2Dias = parseInt(pase_dosdia.value, 10) || 0;
+                    var BoletoCompletos = parseInt(pase_completo.value, 10) || 0;
+                    var cant_camisa = parseInt(camisas.value, 10) || 0;
+                    var cant_eti = parseInt(etiquetas.value, 10) || 0;
+
+                    var total = (BoletoDia * 30) + (Boleto2Dias * 45) + (BoletoCompletos * 50) + ((cant_camisa * 10) - ((cant_camisa * 10) * 0.07)) + (cant_eti * 2);
+                    var listaProductos = [];
+                    if (BoletoDia >= 1) {
+                        listaProductos.push(BoletoDia + ' Pases 1 dia');
+
+                    }
+                    if (Boleto2Dias >= 1) {
+                        listaProductos.push(Boleto2Dias + ' Pases 2 dias');
+
+                    }
+                    if (BoletoCompletos >= 1) {
+                        listaProductos.push(BoletoCompletos + ' Pases completos');
+                    }
+                    if (cant_camisa >= 1) {
+                        listaProductos.push(cant_camisa + ' Camisas');
+
+                    }
+                    if (cant_eti >= 1) {
+                        listaProductos.push(cant_eti + ' Etiquetas');
+
+                    }
+                    lista_productos.style.display = 'block';
+                    lista_productos.innerHTML = '';
+                    for (var i = 0; i < listaProductos.length; i++) {
+                        lista_productos.innerHTML += listaProductos[i] + '<br/>';
+                    }
+                    total_pagar.innerHTML = '$ ' + total.toFixed(2);
+                    console.log(listaProductos);
+                }
+            }
+
+            pase_dia.addEventListener('blur', MosOcul);
+            pase_dosdia.addEventListener('blur', MosOcul);
+            pase_completo.addEventListener('blur', MosOcul);
+            function MosOcul() {
+                OcultarCursos();
+                MostrarCursos();
+            }
+            function MostrarCursos() {
+
+                var diasElegidos = [];
                 var BoletoDia = parseInt(pase_dia.value, 10) || 0;
                 var Boleto2Dias = parseInt(pase_dosdia.value, 10) || 0;
                 var BoletoCompletos = parseInt(pase_completo.value, 10) || 0;
-                var cant_camisa = parseInt(camisas.value, 10) || 0;
-                var cant_eti = parseInt(etiquetas.value, 10) || 0;
+                if (BoletoDia > 0) {
+                    diasElegidos.push('viernes');
+                }
+                if (Boleto2Dias > 0) {
+                    diasElegidos.push('viernes', 'sabado');
+                }
+                if (BoletoCompletos > 0) {
+                    diasElegidos.push('viernes', 'sabado', 'domingo');
+                }
 
-                var total = (BoletoDia * 30) + (Boleto2Dias * 45) + (BoletoCompletos * 50) + ((cant_camisa * 10) - ((cant_camisa * 10) * 0.07)) + (cant_eti * 2);
-                var listaProductos = [];
-                if (BoletoDia >= 1) {
-                    listaProductos.push(BoletoDia + ' Pases 1 dia');
+                for (var i = 0; i < diasElegidos.length; i++) {
+                    document.getElementById(diasElegidos[i]).style.display = 'block';
+                }
+            }
+            function OcultarCursos() {
 
+                var diasElegidos = [];
+                var BoletoDia = parseInt(pase_dia.value, 10) || 0;
+                var Boleto2Dias = parseInt(pase_dosdia.value, 10) || 0;
+                var BoletoCompletos = parseInt(pase_completo.value, 10) || 0;
+                if (BoletoDia == 0) {
+                    diasElegidos.push('viernes');
                 }
-                if (Boleto2Dias >= 1) {
-                    listaProductos.push(Boleto2Dias + ' Pases 2 dias');
+                if (Boleto2Dias == 0) {
+                    diasElegidos.push('viernes', 'sabado');
+                }
+                if (BoletoCompletos == 0) {
+                    diasElegidos.push('viernes', 'sabado', 'domingo');
+                }
 
+                for (var i = 0; i < diasElegidos.length; i++) {
+                    document.getElementById(diasElegidos[i]).style.display = 'none';
                 }
-                if (BoletoCompletos >= 1) {
-                    listaProductos.push(BoletoCompletos + ' Pases completos');
-                }
-                if (cant_camisa >= 1) {
-                    listaProductos.push(cant_camisa + ' Camisas');
+            }
 
-                }
-                if (cant_eti >= 1) {
-                    listaProductos.push(cant_eti + ' Etiquetas');
 
+            nombre.addEventListener('blur', validarCampos);
+            apellido.addEventListener('blur', validarCampos);
+            email.addEventListener('blur', validarCampos);
+            email.addEventListener('blur', validarMail);
+
+
+            function validarCampos() {
+                if (this.value == '') {
+                    error.style.display = 'block';
+                    error.style.border = '1px solid red';
+                    error.innerHTML = 'Campo obligatorio';
+                    this.style.border = '1px solid red';
                 }
-                lista_productos.style.display = 'block';
-                lista_productos.innerHTML = '';
-                for (var i = 0; i < listaProductos.length; i++) {
-                    lista_productos.innerHTML += listaProductos[i] + '<br/>';
+                else {
+                    error.style.display = 'none';
+                    this.style.border = '1px solid #cccccc';
                 }
-                total_pagar.innerHTML = '$ ' + total.toFixed(2);
-                console.log(listaProductos);
+            }
+            function validarMail() {
+                if (this.value.indexOf("@") > -1) {
+                    console.log(this.value.indexOf("@"));
+                    error.style.display = 'none';
+                    this.style.border = '1px solid #cccccc';
+                }
+                else {
+                    error.style.display = 'block';
+                    error.style.border = '1px solid red';
+                    error.innerHTML = 'Formato de correo incorrecto';
+                    this.style.border = '1px solid red';
+                }
             }
         }
 
-        pase_dia.addEventListener('blur', MosOcul);
-        pase_dosdia.addEventListener('blur', MosOcul);
-        pase_completo.addEventListener('blur', MosOcul);
-        function MosOcul() {
-            OcultarCursos();
-            MostrarCursos();
-        }
-        function MostrarCursos() {
-
-            var diasElegidos = [];
-            var BoletoDia = parseInt(pase_dia.value, 10) || 0;
-            var Boleto2Dias = parseInt(pase_dosdia.value, 10) || 0;
-            var BoletoCompletos = parseInt(pase_completo.value, 10) || 0;
-            if (BoletoDia > 0) {
-                diasElegidos.push('viernes');
-            }
-            if (Boleto2Dias > 0) {
-                diasElegidos.push('viernes', 'sabado');
-            }
-            if (BoletoCompletos > 0) {
-                diasElegidos.push('viernes', 'sabado', 'domingo');
-            }
-
-            for (var i = 0; i < diasElegidos.length; i++) {
-                document.getElementById(diasElegidos[i]).style.display = 'block';
-            }
-        }
-        function OcultarCursos() {
-
-            var diasElegidos = [];
-            var BoletoDia = parseInt(pase_dia.value, 10) || 0;
-            var Boleto2Dias = parseInt(pase_dosdia.value, 10) || 0;
-            var BoletoCompletos = parseInt(pase_completo.value, 10) || 0;
-            if (BoletoDia == 0) {
-                diasElegidos.push('viernes');
-            }
-            if (Boleto2Dias == 0) {
-                diasElegidos.push('viernes', 'sabado');
-            }
-            if (BoletoCompletos == 0) {
-                diasElegidos.push('viernes', 'sabado', 'domingo');
-            }
-
-            for (var i = 0; i < diasElegidos.length; i++) {
-                document.getElementById(diasElegidos[i]).style.display = 'none';
-            }
-        }
-
-
-        nombre.addEventListener('blur', validarCampos);
-        apellido.addEventListener('blur', validarCampos);
-        email.addEventListener('blur', validarCampos);
-        email.addEventListener('blur', validarMail);
-
-
-        function validarCampos() {
-            if (this.value == '') {
-                error.style.display = 'block';
-                error.style.border = '1px solid red';
-                error.innerHTML = 'Campo obligatorio';
-                this.style.border = '1px solid red';
-            }
-            else {
-                error.style.display = 'none';
-                this.style.border = '1px solid #cccccc';
-            }
-        }
-        function validarMail() {
-            if (this.value.indexOf("@") > -1) {
-                console.log(this.value.indexOf("@"));
-                error.style.display = 'none';
-                this.style.border = '1px solid #cccccc';
-            }
-            else {
-                error.style.display = 'block';
-                error.style.border = '1px solid red';
-                error.innerHTML = 'Formato de correo incorrecto';
-                this.style.border = '1px solid red';
-            }
-        }
     });
 })();
 
 $().ready(() => {
     'use stric'
-
+    //nombre del sitio
     $('.nombre-sitio').lettering();
+    //--nombre el sitio
+
+    //scroll menu
+    var alturaVentana = $(window).height();
+    var alturaBarra = $('.barra').innerHeight(true);
+
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll > alturaVentana) {
+            $('.barra').addClass('fixed');
+            $('body').css({ 'margin-top': alturaBarra + 'px' });
+        }
+        else {
+            $('.barra').removeClass('fixed');
+            $('body').css({ 'margin-top': '0px' });
+        }
+    });
+    //--scroll menu
+
+    //menu responsive
+    $('.menu-movil').on('click', () => {
+        $('.navegacion-principal').slideToggle();
+    });
+
+    var breakpoint = 768;
+    $(window).resize(function () {
+        if ($(document).width() >= breakpoint) {
+            $('.navegacion-principal').show();
+        } else {
+            $('.navegacion-principal').hide();
+        }
+    });
+    //--menu responsive
     $('.ocultar').hide();
     $('.programa-evento .info-curso:first').show();
     $('.menu-programa a:first').addClass('activo')
-    $('.menu-programa a').on('click', function() {
+    $('.menu-programa a').on('click', function () {
         $('.ocultar').hide();
         $('.menu-programa a').removeClass('activo');
         $(this).addClass('activo');
@@ -202,13 +237,19 @@ $().ready(() => {
     })
 
     //animaciones para numeros//
-    $('.resumen-evento li:nth-child(1) p').animateNumber({number:6},1000);
-    $('.resumen-evento li:nth-child(2) p').animateNumber({number:15},1200);
-    $('.resumen-evento li:nth-child(3) p').animateNumber({number:3},1200);
-    $('.resumen-evento li:nth-child(4) p').animateNumber({number:9},1200);
+    var resumentLista = $('.resumen-evento');
+    if (resumentLista.length > 0) {
+        $('.resumen-evento').waypoint(function () {
+            $('.resumen-evento li:nth-child(1) p').animateNumber({ number: 6 }, 1000);
+            $('.resumen-evento li:nth-child(2) p').animateNumber({ number: 15 }, 1200);
+            $('.resumen-evento li:nth-child(3) p').animateNumber({ number: 3 }, 1200);
+            $('.resumen-evento li:nth-child(4) p').animateNumber({ number: 9 }, 1200);
+        },{offset:'60%'});
+    }
+
 
     //Cuenta regresiva
-    $('.cuenta-regresiva').countdown('2018/05/17 14:30:00',function(event){
+    $('.cuenta-regresiva').countdown('2018/05/17 14:30:00', function (event) {
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
         $('#minutos').html(event.strftime('%M'));

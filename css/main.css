@@ -223,7 +223,7 @@ h1.nombre-sitio {
     font-family: 'PT Sans', sans-serif;
 }
 
-h1.nombre-sitio span{
+h1.nombre-sitio span {
     position: relative;
     text-shadow: 0 0 30px black;
 }
@@ -267,6 +267,14 @@ div.barra {
     padding: 20px 0;
 }
 
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
 div.logo {
     width: 80%;
     float: left;
@@ -282,6 +290,7 @@ div.logo img {
 
 nav.navegacion-principal {
     display: none;
+    width: 100%;
 }
 
 nav.navegacion-principal a {
@@ -294,6 +303,7 @@ nav.navegacion-principal a {
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
+    clear: both;
 }
 
 nav.navegacion-principal a:hover {
@@ -319,7 +329,7 @@ div.menu-movil {
     display: block;
     float: right;
     text-align: right;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 div.menu-movil span {
@@ -895,7 +905,7 @@ input[disabled].button {
 
 @media only screen and (max-width:340px) {
     div.menu-movil {
-        width: 20%;
+        width: 18%;
         margin-top: 4px;
     }
 }
@@ -1010,13 +1020,22 @@ div.campo {
 }
 
 /* Galeria fotos */
-div.galeria a{
+div.galeria{
+    margin: 0;
+}
+div.galeria a {
     display: inline-block;
     margin-bottom: 5px;
 }
-body.conferencia .navegacion-principal .activo{
+
+div.galeria a:hover {
+    filter: grayscale(1);
+}
+
+body.conferencia .navegacion-principal .activo {
     border-bottom: 2px solid #fe4918;
 }
+
 /* *****************768***************************** */
 
 /* ******************768***************************** */
@@ -1041,48 +1060,46 @@ body.conferencia .navegacion-principal .activo{
     div.programa-evento {
         width: 50%;
     }
-
-    .char1{
+    .char1 {
         top: 20px;
         right: 5px;
     }
-    .char2{
+    .char2 {
         top: 0px;
         right: 5px;
     }
-    .char3{
+    .char3 {
         top: 14px;
         right: 5px;
     }
-    .char4{
+    .char4 {
         top: 11px;
         right: 5px;
     }
-    .char5{
+    .char5 {
         top: 4px;
         right: 5px;
     }
-    .char6{
+    .char6 {
         top: 16px;
         right: 5px;
     }
-    .char7{
+    .char7 {
         top: 23px;
         right: 5px;
     }
-    .char8{
+    .char8 {
         top: 19px;
         right: -4px;
     }
-    .char9{
+    .char9 {
         top: 15px;
         right: 2px;
     }
-    .char10{
+    .char10 {
         top: 8px;
         right: -5px;
     }
-    
 }
 
 /* ************************************************** */
